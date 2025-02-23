@@ -2,6 +2,11 @@
 
 A powerful localization package for Flutter that utilizes LLM-based translation services to dynamically translate text while caching translations for offline use.
 
+## ![Video demo](https://github.com/user-attachments/assets/a7537bc6-86b0-48df-98e8-19d00432b57a)
+
+
+
+
 ## Features
 - Supports multiple languages dynamically
 - Caches translations for offline use
