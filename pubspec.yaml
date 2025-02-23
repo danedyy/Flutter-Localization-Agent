@@ -1,0 +1,38 @@
+name: flutter_localization_agent
+description: "Flutter Localization Agent is a package designed for in-app localization, leveraging various Language Models (LLMs) to translate the base language into multiple supported languages. This makes it easier and faster to implement localization in any Flutter app."
+version: 0.0.1
+homepage: https://github.com/danedyy/Flutter-Localization-Agent
+issue_tracker: https://github.com/danedyy/Flutter-Localization-Agent/issues
+topics: [localization, flutter, language-model,agent, translation]
+
+environment:
+  sdk: ^3.7.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  http: ^1.3.0
+  shared_preferences: ^2.5.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+screenshots:
+  - description: English homepage
+    path: screenshots/en-home.png
+  - description: English dialog
+    path: screenshots/en-dialog.png
+  - description: English settings
+    path: screenshots/en-settings.png
+  - description: Arabic homepage
+    path: screenshots/ar-home.png
+  - description: Arabic dialog
+    path: screenshots/ar-dialog.png
+  - description: Arabic settings
+    path: screenshots/ar-settings.png
+
