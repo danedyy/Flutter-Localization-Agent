@@ -3,7 +3,7 @@ import 'dart:ui';
 /// Represents a language with a code and name, compatible with Flutter locales.
 class Language {
   /// ISO language code (e.g., 'en' for English).
-  /// 
+  ///
   /// see supported flutter codes https://api.flutter.dev/flutter/flutter_localizations/kMaterialSupportedLanguages.html
   final String code;
 

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:flutter_localization_agent/flutter_localization_agent.dart';
+import 'package:flutter_localization_agent/services/api_exception.dart';
 import 'package:http/http.dart' as http;
 
 /// Abstract interface for LLM-based translators.
@@ -91,9 +91,7 @@ class GeminiTranslator implements LLMTranslator {
         }
         throw FormatException('Unexpected response format');
       } else {
-        throw HttpException(
-          'API call failed: ${response.statusCode}, ${response.body}',
-        );
+        throw ApiException(response.statusCode, response.body);
       }
     } on FormatException catch (e) {
       throw Exception('Invalid response format: ${e.message}');
