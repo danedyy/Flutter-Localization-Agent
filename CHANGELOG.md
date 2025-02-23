@@ -1,3 +1,8 @@
-## 0.0.1
+## 1.0.1
 
-* TODO: Describe initial release.
+* Add support for web
+
+## 1.0.0
+
+* Initial release with Gemini API localization features.
+
