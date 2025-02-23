@@ -1,6 +1,6 @@
 name: flutter_localization_agent
 description: "Package for in-app localization using Language Models (LLMs) to translate the base language into multiple supported languages."
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/danedyy/Flutter-Localization-Agent
 issue_tracker: https://github.com/danedyy/Flutter-Localization-Agent/issues
 topics: [localization, flutter, translation]
