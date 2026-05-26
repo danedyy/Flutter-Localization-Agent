@@ -64,7 +64,7 @@ class GeminiTranslator implements LLMTranslator {
               "generationConfig": {"response_mime_type": "application/json"},
             }),
           )
-          .timeout(const Duration(seconds: 30));
+          .timeout(const Duration(minutes: 10));
 
       if (response.statusCode == 200) {
         final decodedResponse = jsonDecode(response.body);
