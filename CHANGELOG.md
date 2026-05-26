@@ -1,3 +1,7 @@
+## 1.1.1
+
+* increased service timeout to 10 minutes
+
 ## 1.1.0
 
 * Add `TransalatorAgent` sealed type and `GeminiTranslatorAgent` for configuring LLM translators.
