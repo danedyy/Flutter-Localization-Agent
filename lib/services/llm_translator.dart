@@ -6,6 +6,8 @@ import 'package:flutter_localization_agent/flutter_localization_agent.dart';
 import 'package:flutter_localization_agent/services/api_exception.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/transalator_agent.dart';
+
 /// Abstract interface for LLM-based translators.
 abstract class LLMTranslator {
   /// Translates or processes text using the LLM.
@@ -15,28 +17,23 @@ abstract class LLMTranslator {
   });
 }
 
-/// Enum for selecting the Large Language Model.
-enum LLM {
-  /// Gemini API - https://ai.google.dev/gemini-api/docs
-  gemini,
-}
-
 /// Factory for creating LLM translators.
 class LLMTranslatorFactory {
   /// Creates an LLMTranslator instance based on the selected LLM and API key.
-  static LLMTranslator createTranslator(LLM llm, String apiKey) {
-    switch (llm) {
-      case LLM.gemini:
-        return GeminiTranslator(apiKey);
+  static LLMTranslator createTranslator(TransalatorAgent agent) {
+    switch (agent) {
+      case GeminiTranslatorAgent():
+        return GeminiTranslator(model: agent.model, apiKey: agent.geminiApiKey);
     }
   }
 }
 
 /// Gemini translator using Google gemini-1.5-flash API.
 class GeminiTranslator implements LLMTranslator {
+  final String model;
   final String apiKey;
 
-  GeminiTranslator(this.apiKey);
+  GeminiTranslator({required this.model, required this.apiKey});
 
   @override
   Future<Map<String, String>> processTranslation({
@@ -49,7 +46,7 @@ class GeminiTranslator implements LLMTranslator {
       final response = await http
           .post(
             Uri.parse(
-              'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=$apiKey',
+              'https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent?key=$apiKey',
             ),
             headers: {'Content-Type': 'application/json'},
             body: jsonEncode({

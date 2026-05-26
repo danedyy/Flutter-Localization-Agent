@@ -1,6 +1,7 @@
 import 'package:example/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization_agent/flutter_localization_agent.dart';
+import 'package:flutter_localization_agent/models/transalator_agent.dart';
 import 'package:provider/provider.dart';
 
 Map<String, String> baseLanguageEnglishJson = {
@@ -29,8 +30,7 @@ void main() async {
 
   // Initialize the translator and service
   final translator = LLMTranslatorFactory.createTranslator(
-    LLM.gemini,
-    'YOUR_API_KEY',
+   GeminiTranslatorAgent(geminiApiKey: 'YOUR_API_KEY')
   );
 
   final supportedLanguages = [
@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 18),
           bodyMedium: TextStyle(fontSize: 16),
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 4,
           margin: EdgeInsets.symmetric(vertical: 8),
         ),
